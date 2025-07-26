@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 export default function Upload() {
   const [file, setFile] = useState(null);
   const handleUpload = () => {
@@ -7,10 +8,13 @@ export default function Upload() {
     alert(`Fichye ${file.name} telechaje!`);
   };
   return (
-    <div style={{ padding: "20px", backgroundColor: "#0d1b2a", color: "white", height: "100vh" }}>
-      <h1 style={{ fontSize: "2rem" }}>Upload Fichye</h1>
-      <input type="file" onChange={(e) => setFile(e.target.files[0])} style={{ margin: "20px 0" }}/>
-      <button onClick={handleUpload} style={{ padding: "10px 20px", background: "#1e90ff", color: "white", border: "none", borderRadius: "5px" }}>Upload</button>
+    <div className="min-h-screen bg-gray-900 text-white">
+      <Navbar />
+      <div className="p-10">
+        <h1 className="text-3xl font-bold mb-4">Upload Fichye</h1>
+        <input type="file" onChange={(e) => setFile(e.target.files[0])} className="mb-4" />
+        <button onClick={handleUpload} className="bg-blue-600 px-4 py-2 rounded">Upload</button>
+      </div>
     </div>
   );
 }
